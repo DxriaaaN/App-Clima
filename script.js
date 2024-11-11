@@ -27,6 +27,7 @@ function mostrarDatosClima(data) {
     const descripcion = data.weather[0].description;
     const paisNombre = data.sys.country;
     const humdedadClima = data.main.humidity;
+    const icono = data.weather[0].icon
 
     const ciudadTitulo = document.createElement('h2')
     ciudadTitulo.textContent = `${ciudadNombre}, ${paisNombre}`;
@@ -34,11 +35,15 @@ function mostrarDatosClima(data) {
     const temperaturaInfo = document.createElement('p')
     temperaturaInfo.textContent = `La temperatura es: ${Math.floor(temperatura - difKelvin)}ºC, Humedad: ${humdedadClima}%`;
 
+    const iconoInfo = document.createElement('img')
+    iconoInfo.src = `https://openweathermap.org/img/wn/${icono}@2x.png`
+
     const descripcionInfo = document.createElement('p')
     descripcionInfo.textContent = `La descripcion es: ${descripcion}`;
 
     divDatosClima.appendChild(ciudadTitulo);
     divDatosClima.appendChild(temperaturaInfo);
+    divDatosClima.appendChild(iconoInfo)
     divDatosClima.appendChild(descripcionInfo);
 }
 
